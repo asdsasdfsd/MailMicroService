@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        DOCKERHUB_REPO_MAILMICROSERVICE = 'mailmicroservice' 
+        DOCKERHUB_REPO_MAILMICROSERVICE = 'sh-mailmicroservice' 
         DOCKERHUB_CREDENTIALS = 'dockerhub-credentials'        // Docker Hub 凭证
         DOCKERHUB_USER = 'tigerwk'                             // Docker Hub 用户名
     }
