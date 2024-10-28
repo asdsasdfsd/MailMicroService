@@ -46,8 +46,10 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    def chatMicroServiceImage = docker.image("${DOCKERHUB_USER}/${DOCKERHUB_REPO_MAILMICROSERVICE}:latest")
-                    chatMicroServiceImage.push()
+                    docker.withRegistry('https://registry-1.docker.io/v2/', "${DOCKERHUB_CREDENTIALS}") {
+                        def chatMicroServiceImage = docker.image("${DOCKERHUB_USER}/${DOCKERHUB_REPO_MAILMICROSERVICE}:latest")
+                        chatMicroServiceImage.push()
+                    }
                 }
             }
         }
